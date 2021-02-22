@@ -26,7 +26,31 @@ let dataset = [
 
 describe("Calculator", () => {
   // for each math problem in dataset..
-    // test if expected value is equal to actual value
-      // for the actual value..
-        // use a switch statement on the currentMathProb's method property to determine which of the calculator's methods to call, passing in the x and y properties' values
+  dataset.forEach(mathProblem => {
+    // test if expected value is equal to actual value using a switch statement to determine which calculator method to call
+    switch(mathProblem.method) {
+      case "add":
+        it(`can add: ${mathProblem.x} + ${mathProblem.x}`, () => {
+          return expect(mathProblem.x + mathProblem.y).toEqual(calculator.add(mathProblem.x, mathProblem.y));
+        });
+        break;
+      case "subtract":
+        it(`can subtract: ${mathProblem.x} - ${mathProblem.x}`, () => {
+          return expect(mathProblem.x - mathProblem.y).toEqual(calculator.subtract(mathProblem.x, mathProblem.y));
+        });
+        break;
+      case "multiply":
+        it(`can multiply: ${mathProblem.x} * ${mathProblem.x}`, () => {
+          return expect(mathProblem.x * mathProblem.y).toEqual(calculator.multiply(mathProblem.x, mathProblem.y));
+        });
+        break;
+      case "divide":
+        it(`can divide: ${mathProblem.x} / ${mathProblem.x}`, () => {
+          return expect(mathProblem.x / mathProblem.y).toEqual(calculator.divide(mathProblem.x, mathProblem.y));
+        });
+        break;
+      default:
+        console.log("default");
+    }
+  });
 });
