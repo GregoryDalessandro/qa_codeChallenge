@@ -3,8 +3,8 @@ describe("checking for truth", () => {
     // here are the two arrays to populate in this test.
     // all littleNumbers entries should be smaller than any bigNumbers entry
     // both arrays should have the same length.
-    let littleNumbers: Array<number> = [];
-    let bigNumbers: Array<number> = [];
+    let littleNumbers: Array<number> = [-10,-8,0,1,5,10];
+    let bigNumbers: Array<number> = [300,12340,301,1000.5,99999];
 
     for (let i = 0; i < littleNumbers.length && i < bigNumbers.length; i++) {
       expect(littleNumbers[i]).toBeLessThan(bigNumbers[i]);
