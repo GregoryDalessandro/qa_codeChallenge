@@ -15,7 +15,7 @@ describe("checking for truth", () => {
     expect(wordToCheck.split("").reverse().join("")).toBe(wordToCheck);
   });
   test("true", () => {
-    let val = null; //set this to a passing value
+    let val = 1; //set this to a passing value
     expect(val).toBeTruthy();
   });
   test("there is a sequence to this test", () => {
