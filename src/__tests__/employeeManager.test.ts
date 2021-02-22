@@ -69,4 +69,17 @@ describe("Employee Manager", () => {
       title: "CEO"
     });
   });
+  it("unsaved changes do not persist when editing and then navigating away without selecting the save button", async() => {
+    await em.selectEmployeeByName("Bernice Ortiz");
+    await em.editEmployee({title: "court jester"});
+    await em.selectEmployeeByName("Phillip Weaver");
+    await em.selectEmployeeByName("Bernice Ortiz");
+    let employee = await em.getEmployeeInfo();
+    expect(employee).toEqual({
+      id: 1,
+      name: "Bernice Ortiz",
+      phone: "4824931093",
+      title: "CEO"
+    });
+  });
 });
