@@ -24,4 +24,9 @@ let dataset = [
   { x: 81, y: 227, method: "divide" },
 ];
 
-describe("Calculator", () => {});
+describe("Calculator", () => {
+  // for each math problem in dataset..
+    // test if expected value is equal to actual value
+      // for the actual value..
+        // use a switch statement on the currentMathProb's method property to determine which of the calculator's methods to call, passing in the x and y properties' values
+});
