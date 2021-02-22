@@ -11,7 +11,7 @@ describe("checking for truth", () => {
     }
   });
   test("wordToCheck is a palindrome, case and everything", () => {
-    let wordToCheck = "replace me"; // yeah, replace the value to pass the test.
+    let wordToCheck = "kayak"; // yeah, replace the value to pass the test.
     expect(wordToCheck.split("").reverse().join("")).toBe(wordToCheck);
   });
   test("true", () => {
