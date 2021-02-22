@@ -40,7 +40,6 @@ describe("Employee Manager", () => {
     expect (employee.name).toEqual("Second Person");
     expect (employee.phone).toEqual("1234567891");
     expect (employee.title).toEqual("The best second person ever");
-
   });
   it("can edit an existing employee", async () => {
     await em.selectEmployeeByName("Bernice Ortiz");
@@ -54,6 +53,20 @@ describe("Employee Manager", () => {
       name: "Bernice Ortiz",
       phone: "4824931093",
       title: "Grand Poobah",
+    });
+  });
+  it("can cancel an edit of an employee", async() => {
+    await em.selectEmployeeByName("Bernice Ortiz");
+    await em.editEmployee({title: "court jester"});
+    await em.cancelChanges();
+    await em.selectEmployeeByName("Phillip Weaver");
+    await em.selectEmployeeByName("Bernice Ortiz");
+    let employee = await em.getEmployeeInfo();
+    expect(employee).toEqual({
+      id: 1,
+      name: "Bernice Ortiz",
+      phone: "4824931093",
+      title: "CEO"
     });
   });
 });
